@@ -77,7 +77,7 @@ public class Anti_A : MonoBehaviour
                 Invoke("HideFirstPoint", 0.5f);
                 Invoke("HideSecondPoint", 0.8f);
                 BlueShader.SetFloat("_Fill", 0f);
-
+                control.counter++;
 
             }
 

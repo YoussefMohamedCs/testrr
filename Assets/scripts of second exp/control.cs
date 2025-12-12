@@ -15,7 +15,8 @@ public class control : MonoBehaviour
     private float BloodFill;
     public Material BLOOD_ON_BOARD;
     public static int exp_number_;
-
+    public static int counter = 0;
+    public GameObject panel;
     void Awake()
     {
         exp_number_ = Random.Range(1, 9);
@@ -30,6 +31,24 @@ public class control : MonoBehaviour
     private void Update()
     {
         BloodFill = bloodShadeer.GetFloat("_Fill");
+         if(counter == 2 && (exp_number_ == 1 || exp_number_ == 3 || exp_number_ == 6))
+        {
+
+            panel.SetActive(true);
+        } else if(counter == 1 && (exp_number_ == 2 || exp_number_ == 7 || exp_number_ == 4))
+        {
+            panel.SetActive(true);
+        }
+        else if(counter == 3 && (exp_number_ == 5 ))
+        {
+            panel.SetActive(true);
+
+        }
+        else if(counter == 0 && exp_number_ == 8)
+        {
+            panel.SetActive(true);
+        }
+
     }
 
     private void OnCollisionEnter(Collision collision)

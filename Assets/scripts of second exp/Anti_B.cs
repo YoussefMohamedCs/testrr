@@ -78,7 +78,7 @@ public class Anti_B : MonoBehaviour
                 Invoke("HideFirstPoint", 0.5f);
                 Invoke("HideSecondPoint", 0.8f);
                 yellowShader.SetFloat("_Fill", 0f);
-
+                control.counter++;
 
             }
         }

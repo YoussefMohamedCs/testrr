@@ -53,7 +53,9 @@ public class Anti_D : MonoBehaviour
     void HideFirstPoint()
     {
         point1.SetActive(false);
-   
+  
+
+
     }
     void HideSecondPoint()
     {
@@ -72,7 +74,7 @@ public class Anti_D : MonoBehaviour
             BLOOD_IS_SET = true;
         }
 
-        if ((exp_num == 1) || exp_num == 3 || exp_num == 5 || exp_num == 5)
+        if ((exp_num == 1) || exp_num == 3 || exp_num == 5 || exp_num == 7)
         {
             if (collision.gameObject.CompareTag("WhiteWell") && BLOOD_IS_SET == true && whiteFill != 0)
             {
@@ -82,6 +84,7 @@ public class Anti_D : MonoBehaviour
                 Invoke("HideFirstPoint", 0.5f);
                 Invoke("HideSecondPoint", 0.8f);
                 whiteSHader.SetFloat("_Fill", 0f);
+                control.counter++;
 
 
             }
