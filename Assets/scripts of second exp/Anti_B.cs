@@ -13,12 +13,12 @@ public class Anti_B : MonoBehaviour
     float BloodFill;
     float YellowFill;
     bool BLOOD_IS_SET = false;
-
+    int exp_num;
 
     void Start()
     {
         BLOOD_ON_BOARD.SetColor("_SideColor", Color.red);
-      
+      exp_num  = control.exp_number_;
     }
 
     private void Update()
@@ -68,18 +68,21 @@ public class Anti_B : MonoBehaviour
             BLOOD_IS_SET = true;
         }
 
-
-        if (collision.gameObject.CompareTag("YellowWell") && BLOOD_IS_SET == true && YellowFill != 0)
+        if(exp_num == 3 || exp_num == 4 || exp_num == 5 || exp_num == 6)
         {
-            StartCoroutine(ChangeColorGradually());
-            point1.SetActive(true);
-            point2.SetActive(true);
-            Invoke("HideFirstPoint", 0.5f);
-            Invoke("HideSecondPoint", 0.8f);
-            yellowShader.SetFloat("_Fill", 0f);
+            if (collision.gameObject.CompareTag("YellowWell") && BLOOD_IS_SET == true && YellowFill != 0)
+            {
+                StartCoroutine(ChangeColorGradually());
+                point1.SetActive(true);
+                point2.SetActive(true);
+                Invoke("HideFirstPoint", 0.5f);
+                Invoke("HideSecondPoint", 0.8f);
+                yellowShader.SetFloat("_Fill", 0f);
 
 
+            }
         }
+      
     }
 
 

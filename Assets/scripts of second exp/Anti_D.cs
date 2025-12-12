@@ -4,6 +4,7 @@ using System.Collections;
 
 public class Anti_D : MonoBehaviour
 {
+   
     public GameObject blood;
     public Material bloodShadeer;
     public Material yellowShader;
@@ -15,12 +16,14 @@ public class Anti_D : MonoBehaviour
     float BloodFill;
     float whiteFill;
     bool BLOOD_IS_SET = false;
-
+    int exp_num;
 
     void Start()
     {
-        BLOOD_ON_BOARD.SetColor("_SideColor", Color.red);
      
+        BLOOD_ON_BOARD.SetColor("_SideColor", Color.red);
+        exp_num = control.exp_number_;
+
     }
     private void Update()
     {
@@ -61,6 +64,7 @@ public class Anti_D : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+    
         if (collision.gameObject.CompareTag("BloodWell") && BloodFill != 0)
         {
             bloodShadeer.SetFloat("_Fill", 0f);
@@ -68,18 +72,21 @@ public class Anti_D : MonoBehaviour
             BLOOD_IS_SET = true;
         }
 
-
-        if (collision.gameObject.CompareTag("WhiteWell") && BLOOD_IS_SET == true && whiteFill !=0)
+        if ((exp_num == 1) || exp_num == 3 || exp_num == 5 || exp_num == 5)
         {
-            StartCoroutine(ChangeColorGradually());
-            point1.SetActive(true);
-            point2.SetActive(true);
-            Invoke("HideFirstPoint", 0.5f);
-            Invoke("HideSecondPoint", 0.8f);
-            whiteSHader.SetFloat("_Fill", 0f);
+            if (collision.gameObject.CompareTag("WhiteWell") && BLOOD_IS_SET == true && whiteFill != 0)
+            {
+                StartCoroutine(ChangeColorGradually());
+                point1.SetActive(true);
+                point2.SetActive(true);
+                Invoke("HideFirstPoint", 0.5f);
+                Invoke("HideSecondPoint", 0.8f);
+                whiteSHader.SetFloat("_Fill", 0f);
 
 
-        }
+            }
+        } 
+       
     }
 
    
