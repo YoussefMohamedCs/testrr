@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: 87775f7a6169b464c93a1aaf8001417b, type: 2}
-  followStrength: 40
+  followStrength: 100
 --- !u!1 &114010323 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1475330210475278220, guid: c693bbd051b01aa45a2488c5af2e3a7a, type: 3}
@@ -5068,7 +5068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: 7164fa3858f133648b5f4bf4ef09cf40, type: 2}
-  followStrength: 40
+  followStrength: 100
 --- !u!64 &896477020
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5683,7 +5683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: 642d432126a2d5c4092a5f177530b6bc, type: 2}
-  followStrength: 40
+  followStrength: 100
 --- !u!1 &1043810767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5296600105824789634, guid: c693bbd051b01aa45a2488c5af2e3a7a, type: 3}
@@ -11524,7 +11524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: f04ee0c418759a5499cb6b5aa4bf52ee, type: 2}
-  followStrength: 40
+  followStrength: 100
 --- !u!1 &2120225102 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3689220755881882468, guid: c693bbd051b01aa45a2488c5af2e3a7a, type: 3}
