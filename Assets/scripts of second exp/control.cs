@@ -1,5 +1,8 @@
+using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
+using DG.Tweening;
 public class control : MonoBehaviour
 {
 
@@ -17,9 +20,21 @@ public class control : MonoBehaviour
     public static int exp_number_;
     public static int counter = 0;
     public GameObject panel;
+
+
+    public static bool isAntiA = false;
+    public static bool isAntiB = false;
+    public static bool isAntiD = false;
+
+    public TextMeshPro textCounter;
+    public GameObject textCounterGameObject;
+
+    public static  float timeLeft = 5f;
+    public static int secs ;
     void Awake()
     {
         exp_number_ = Random.Range(1, 9);
+        secs = 5;
     }
 
     void Start()
@@ -28,27 +43,44 @@ public class control : MonoBehaviour
         BLOOD_ON_BOARD.SetColor("_SideColor", Color.red);
         Debug.Log(exp_number_);
     }
-    private void Update()
+     void Update()
     {
+       
+       
+
         BloodFill = bloodShadeer.GetFloat("_Fill");
-         if(counter == 2 && (exp_number_ == 1 || exp_number_ == 3 || exp_number_ == 6))
+         if(isAntiA && isAntiB && isAntiD)
         {
+            if (timeLeft <= 0f)
+            {
+                textCounterGameObject.SetActive(false);
+                timeLeft = 0f;
+                secs = -100;
+                return;
+            }
 
-            panel.SetActive(true);
-        } else if(counter == 1 && (exp_number_ == 2 || exp_number_ == 7 || exp_number_ == 4))
-        {
-            panel.SetActive(true);
-        }
-        else if(counter == 3 && (exp_number_ == 5 ))
-        {
-            panel.SetActive(true);
+            timeLeft -= Time.deltaTime;
+
+            int seconds = Mathf.CeilToInt(timeLeft);
+            secs = seconds;
+
+            Debug.Log(seconds);
+            textCounterGameObject.SetActive(true);
+            textCounter.text = "wait  " + seconds + " seconds for the result";
+            Invoke("handleAppearingOfQuizPanel", 10f);
+           
 
         }
-        else if(counter == 0 && exp_number_ == 8)
-        {
-            panel.SetActive(true);
-        }
 
+   
+
+    
+
+    }
+ 
+    void handleAppearingOfQuizPanel()
+    {
+        panel.SetActive(true);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -57,6 +89,7 @@ public class control : MonoBehaviour
         {
             bloodShadeer.SetFloat("_Fill", 0f);
             blood.SetActive(true);
+            blood.transform.DOScale(new Vector3(-0.05995422f, -0.0007622794f, -0.05995422f), 1f);
         }
     }
 }

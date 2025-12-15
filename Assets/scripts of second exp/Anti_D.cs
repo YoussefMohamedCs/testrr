@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-
+using DG.Tweening;
+using UnityEngine.UIElements;
 public class Anti_D : MonoBehaviour
 {
    
@@ -17,6 +18,8 @@ public class Anti_D : MonoBehaviour
     float whiteFill;
     bool BLOOD_IS_SET = false;
     int exp_num;
+    public Texture2D imgBlood;
+    public GameObject AntiDcylinder;
 
     void Start()
     {
@@ -29,11 +32,24 @@ public class Anti_D : MonoBehaviour
     {
         BloodFill = bloodShadeer.GetFloat("_Fill");
         whiteFill = whiteSHader.GetFloat("_Fill");
+        float timer = control.secs;
+        Debug.Log(timer);
+        if ((exp_num == 1 || exp_num == 3 || exp_num == 5 || exp_num == 7) &&  (timer == 0))
+        {
+
+            StartCoroutine(ChangeColorGradually());
+
+
+        }
     }
-    IEnumerator ChangeColorGradually()
+
+
+
+    IEnumerator changeNormalColor()
     {
         Color startColor = BLOOD_ON_BOARD.GetColor("_SideColor");
-        Color endColor = new Color(1f, 130f / 255f, 7f / 255f, 0f);
+        Color endColor = new Color(1f, 80f / 255f, 0f, 1f);
+
 
         float duration = 2f; // time of transition
         float t = 0f;
@@ -47,6 +63,26 @@ public class Anti_D : MonoBehaviour
 
             yield return null;
         }
+    }
+    IEnumerator ChangeColorGradually()
+    {
+        Color startColor = BLOOD_ON_BOARD.GetColor("_SideColor");
+        Color endColor = new Color(1f, 1f, 1f, 0f); // white with alpha 0
+        BLOOD_ON_BOARD.SetTexture("_MyTexture", imgBlood);
+
+        float duration = 2f; // time of transition
+        float t = 0f;
+
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+
+            Color newColor = Color.Lerp(startColor, endColor, t / duration);
+            BLOOD_ON_BOARD.SetColor("_SideColor", newColor);
+
+            yield return null;
+        }
+        
     }
 
 
@@ -71,23 +107,26 @@ public class Anti_D : MonoBehaviour
         {
             bloodShadeer.SetFloat("_Fill", 0f);
             blood.SetActive(true);
+            blood.transform.DOScale(new Vector3(-0.05995422f , -0.0007622794f , -0.05995422f), 1f);
+
             BLOOD_IS_SET = true;
         }
 
-        if ((exp_num == 1) || exp_num == 3 || exp_num == 5 || exp_num == 7)
-        {
+        
             if (collision.gameObject.CompareTag("WhiteWell") && BLOOD_IS_SET == true && whiteFill != 0)
             {
-                StartCoroutine(ChangeColorGradually());
+
+             
                 point1.SetActive(true);
                 point2.SetActive(true);
-                Invoke("HideFirstPoint", 0.5f);
-                Invoke("HideSecondPoint", 0.8f);
-                whiteSHader.SetFloat("_Fill", 0f);
-                control.counter++;
+            Invoke("HideFirstPoint", 0.5f);
+            Invoke("HideSecondPoint", 0.8f);
+            control.isAntiD = true;
+            whiteSHader.SetFloat("_Fill", 0f);
+            AntiDcylinder.SetActive(true);
+            AntiDcylinder.transform.DOScale(new Vector3(0.13f, 0.0001f, 0.13f), 1f);
 
 
-            }
         } 
        
     }
