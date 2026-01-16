@@ -5119,6 +5119,7 @@ MonoBehaviour:
   BLOOD_ON_BOARD: {fileID: 2100000, guid: 9336287c50039c44e8215905e06ce00a, type: 2}
   point1: {fileID: 124868644}
   point2: {fileID: 689380167}
+  imgBlood: {fileID: 2800000, guid: 04ec62f4539abdb448672a9a268129ef, type: 3}
   AntiBCylinder: {fileID: 1138764635}
 --- !u!1 &574353107 stripped
 GameObject:
@@ -6126,6 +6127,7 @@ MonoBehaviour:
   BLOOD_ON_BOARD: {fileID: 2100000, guid: db7fef5417a1b6a44bcf99bc70a7c5ec, type: 2}
   point1: {fileID: 1156338317}
   point2: {fileID: 1179751340}
+  imgBlood: {fileID: 2800000, guid: 04ec62f4539abdb448672a9a268129ef, type: 3}
   AntiDcylinder: {fileID: 1928916775}
 --- !u!1 &821292012
 GameObject:
@@ -8326,6 +8328,7 @@ MonoBehaviour:
   BLOOD_ON_BOARD: {fileID: 2100000, guid: 05e9e7a77310ae646ba108b8774405b2, type: 2}
   point1: {fileID: 1582014109}
   point2: {fileID: 1597233756}
+  imgBlood: {fileID: 2800000, guid: 04ec62f4539abdb448672a9a268129ef, type: 3}
   AntiACylinder: {fileID: 1944307302}
 --- !u!1 &1171949000 stripped
 GameObject:
