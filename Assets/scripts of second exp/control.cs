@@ -1,10 +1,14 @@
+using TMPro;
+using Unity;
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 
 public class control : MonoBehaviour
 {
 
-
-
+    public TextMeshPro waitingText;
+    public GameObject waitingTextObject;
+    public static int the_numbers_of_testing = 0;
     public GameObject blood;
     public Material bloodShadeer;
     public Material yellowShader;
@@ -17,6 +21,7 @@ public class control : MonoBehaviour
     public static int exp_number_;
     public static int counter = 0;
     public GameObject panel;
+    int counterTimer = 0;
     void Awake()
     {
         exp_number_ = Random.Range(1, 9);
@@ -28,29 +33,53 @@ public class control : MonoBehaviour
         BLOOD_ON_BOARD.SetColor("_SideColor", Color.red);
         Debug.Log(exp_number_);
     }
-    private void Update()
+
+ 
+    void FixedUpdate()
     {
-        BloodFill = bloodShadeer.GetFloat("_Fill");
-         if(counter == 2 && (exp_number_ == 1 || exp_number_ == 3 || exp_number_ == 6))
+       
+
+        if (the_numbers_of_testing == 3)
+        {
+            waitingText.text = "wait for " + Mathf.Floor(counterTimer * Time.deltaTime) + " seconds";
+            waitingTextObject.SetActive(true);
+            counterTimer++;
+        }
+       if(Mathf.Floor(counterTimer * Time.deltaTime) == 6)
+        {
+            waitingTextObject.SetActive(false);
+            the_numbers_of_testing = 0;
+        }
+     
+
+
+
+
+            BloodFill = bloodShadeer.GetFloat("_Fill");
+         if(the_numbers_of_testing == 3 && (exp_number_ == 1 || exp_number_ == 3 || exp_number_ == 6))
+        {
+            Invoke("displayQuizPanel" , 5f);
+
+
+        } else if(the_numbers_of_testing == 3 && (exp_number_ == 2 || exp_number_ == 7 || exp_number_ == 4))
+        {
+            Invoke("displayQuizPanel", 5f);
+        }
+        else if(the_numbers_of_testing == 3 && (exp_number_ == 5 ))
         {
 
-            panel.SetActive(true);
-        } else if(counter == 1 && (exp_number_ == 2 || exp_number_ == 7 || exp_number_ == 4))
-        {
-            panel.SetActive(true);
+            Invoke("displayQuizPanel", 5f);
         }
-        else if(counter == 3 && (exp_number_ == 5 ))
+        else if(the_numbers_of_testing == 3 && exp_number_ == 8)
         {
-            panel.SetActive(true);
-
-        }
-        else if(counter == 0 && exp_number_ == 8)
-        {
-            panel.SetActive(true);
+            Invoke("displayQuizPanel", 5f);
         }
 
     }
-
+    void displayQuizPanel()
+    {
+        panel.SetActive(true);
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("BloodWell") && BloodFill != 0)

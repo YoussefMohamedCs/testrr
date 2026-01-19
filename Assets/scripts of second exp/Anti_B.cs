@@ -68,22 +68,27 @@ public class Anti_B : MonoBehaviour
             BLOOD_IS_SET = true;
         }
 
-        if(exp_num == 3 || exp_num == 4 || exp_num == 5 || exp_num == 6)
-        {
+       
+        
             if (collision.gameObject.CompareTag("YellowWell") && BLOOD_IS_SET == true && YellowFill != 0)
             {
-                StartCoroutine(ChangeColorGradually());
-                point1.SetActive(true);
-                point2.SetActive(true);
-                Invoke("HideFirstPoint", 0.5f);
-                Invoke("HideSecondPoint", 0.8f);
-                yellowShader.SetFloat("_Fill", 0f);
-                control.counter++;
+                if (exp_num == 3 || exp_num == 4 || exp_num == 5 || exp_num == 6)
+                {
+                    StartCoroutine(ChangeColorGradually());
+                    point1.SetActive(true);
+                    point2.SetActive(true);
+                    Invoke("HideFirstPoint", 0.5f);
+                    Invoke("HideSecondPoint", 0.8f);
+                    yellowShader.SetFloat("_Fill", 0f);
+                    control.counter++;
+                }
+
+            control.the_numbers_of_testing++;
 
             }
         }
-      
-    }
 
+    
 
+    
 }

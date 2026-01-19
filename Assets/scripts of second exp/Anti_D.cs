@@ -32,6 +32,8 @@ public class Anti_D : MonoBehaviour
     }
     IEnumerator ChangeColorGradually()
     {
+       
+
         Color startColor = BLOOD_ON_BOARD.GetColor("_SideColor");
         Color endColor = new Color(1f, 130f / 255f, 7f / 255f, 0f);
 
@@ -74,17 +76,22 @@ public class Anti_D : MonoBehaviour
             BLOOD_IS_SET = true;
         }
 
-        if ((exp_num == 1) || exp_num == 3 || exp_num == 5 || exp_num == 7)
+       
         {
             if (collision.gameObject.CompareTag("WhiteWell") && BLOOD_IS_SET == true && whiteFill != 0)
             {
-                StartCoroutine(ChangeColorGradually());
-                point1.SetActive(true);
-                point2.SetActive(true);
-                Invoke("HideFirstPoint", 0.5f);
-                Invoke("HideSecondPoint", 0.8f);
-                whiteSHader.SetFloat("_Fill", 0f);
-                control.counter++;
+                if ((exp_num == 1) || exp_num == 3 || exp_num == 5 || exp_num == 7)
+                {
+                    StartCoroutine(ChangeColorGradually());
+                    point1.SetActive(true);
+                    point2.SetActive(true);
+                    Invoke("HideFirstPoint", 0.5f);
+                    Invoke("HideSecondPoint", 0.8f);
+                    whiteSHader.SetFloat("_Fill", 0f);
+                    control.counter++;
+                }
+                   
+                control.the_numbers_of_testing++;
 
 
             }
@@ -92,7 +99,9 @@ public class Anti_D : MonoBehaviour
        
     }
 
+
    
+
 
 
 }

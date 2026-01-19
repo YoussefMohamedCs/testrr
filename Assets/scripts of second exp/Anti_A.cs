@@ -1,5 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
+using Mono.Cecil.Cil;
 public class Anti_A : MonoBehaviour
 {
     public GameObject blood;
@@ -10,6 +11,7 @@ public class Anti_A : MonoBehaviour
     public Material BLOOD_ON_BOARD;
     public GameObject point1;
     public GameObject point2;
+    
     float BloodFill;
     float BlueFill;
     bool BLOOD_IS_SET = false;
@@ -28,6 +30,8 @@ public class Anti_A : MonoBehaviour
 
     IEnumerator ChangeColorGradually()
     {
+    
+
         Color startColor = new Color(0.7686f, 0.7843f, 0.8118f, 0f);
         Color endColor = new Color(0.7686f, 0.7843f, 0.8118f, 1f);
 
@@ -67,23 +71,37 @@ public class Anti_A : MonoBehaviour
             BLOOD_IS_SET = true;
         }
 
-        if(exp_num == 1 || exp_num == 2 || exp_num == 5 || exp_num == 6)
-        {
+        
+        
             if (collision.gameObject.CompareTag("BlueWell") && BLOOD_IS_SET == true && BlueFill != 0)
             {
-                StartCoroutine(ChangeColorGradually());
-                point1.SetActive(true);
-                point2.SetActive(true);
-                Invoke("HideFirstPoint", 0.5f);
-                Invoke("HideSecondPoint", 0.8f);
-                BlueShader.SetFloat("_Fill", 0f);
-                control.counter++;
 
+                if (exp_num == 1 || exp_num == 2 || exp_num == 5 || exp_num == 6)
+                {
+                    StartCoroutine(ChangeColorGradually());
+                    point1.SetActive(true);
+                    point2.SetActive(true);
+                    Invoke("HideFirstPoint", 0.5f);
+                    Invoke("HideSecondPoint", 0.8f);
+                    BlueShader.SetFloat("_Fill", 0f);
+                    control.counter++;
+
+
+                }
+                  
+                control.the_numbers_of_testing++;
             }
 
-        }
+        
 
        
     }
+    IEnumerator DelayAction()
+    {
+        Debug.Log("قبل التأخير");
+        yield return new WaitForSeconds(2f); // تأخير 2 ثانية
+        Debug.Log("بعد التأخير");
+    }
 
+    
 }
