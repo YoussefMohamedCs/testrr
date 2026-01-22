@@ -64,7 +64,7 @@ public class control : MonoBehaviour
             int seconds = Mathf.CeilToInt(timeLeft);
             secs = seconds;
 
-            Debug.Log(seconds);
+
             textCounterGameObject.SetActive(true);
             textCounter.text = "wait  " + seconds + " seconds for the result";
             Invoke("handleAppearingOfQuizPanel", 10f);
