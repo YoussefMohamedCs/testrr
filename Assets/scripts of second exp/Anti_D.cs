@@ -33,7 +33,7 @@ public class Anti_D : MonoBehaviour
         BloodFill = bloodShadeer.GetFloat("_Fill");
         whiteFill = whiteSHader.GetFloat("_Fill");
         float timer = control.secs;
-        Debug.Log(timer);
+    
         if ((exp_num == 1 || exp_num == 3 || exp_num == 5 || exp_num == 7) &&  (timer == 0))
         {
 

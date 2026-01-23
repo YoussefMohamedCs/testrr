@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class panel_control : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class panel_control : MonoBehaviour
     public Button ABminus;
     public Button Oplus;
     public Button Ominus;
+    public Material wrong_answer;
 
     public Material mat;
     public GameObject text_beside_button;
@@ -37,13 +39,24 @@ public class panel_control : MonoBehaviour
     void Select(Button b, int num)
     {
         // Clear materials
+
         foreach (Image img in buttonImages)
             img.material = null;
 
         // Set material to the selected button
-        b.image.material = mat;
+
+
 
         exp_selected_number = num;
+
+        if (exp_num == exp_selected_number)
+        {
+            b.image.material = mat;
+        }
+        else
+        {
+            b.image.material = wrong_answer;
+        }
     }
 
     public void AplusPress() => Select(Aplus, 1);
@@ -61,6 +74,10 @@ public class panel_control : MonoBehaviour
         {
             myText.text = "correct!";
             text_beside_button.SetActive(true);
+        }
+        else
+        {
+            myText.text = "false!";
         }
     }
 }

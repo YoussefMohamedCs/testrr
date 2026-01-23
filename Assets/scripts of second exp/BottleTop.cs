@@ -55,8 +55,19 @@ public class BottleTop : MonoBehaviour
         // Instead of MovePosition → use velocity for REAL physics movement
         Vector3 direction = target - transform.position;
 
-        rb.linearVelocity = direction * followStrength * Time.deltaTime;
+        //rb.linearVelocity = direction * followStrength * Time.deltaTime;
+        rb.linearVelocity = direction * Time.deltaTime * 700f;
+        //rb.linearVelocity = Vector3.ClampMagnitude(direction * 60f, 100f);
+        //rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, direction * 60f, 0.5f);
+        //rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, direction * 700f, 0.12f);
+        //rb.linearVelocity = Vector3.ProjectOnPlane(direction, rb.linearVelocity.normalized) * Time.deltaTime * 700f;
+     
+
+
+
+
     }
+
 
     void OnMouseUp()
     {

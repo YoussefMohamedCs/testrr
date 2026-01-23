@@ -15,7 +15,10 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
-       
+        PlayerPrefs.SetFloat("LastX", -103.6763f);
+        PlayerPrefs.SetFloat("LastY", 2.65706f);
+        PlayerPrefs.SetFloat("LastZ", -156.3945f);
+
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked; // Lock and hide the cursor
        if (GameManger_main_menue.Status == "resumeGame")
