@@ -4830,6 +4830,7 @@ MonoBehaviour:
   Oplus: {fileID: 471168836}
   Ominus: {fileID: 1626413103}
   wrong_answer: {fileID: 2100000, guid: 7a419b4dcf508ed4a8f743d0f1663b1d, type: 2}
+  selectType: {fileID: 2100000, guid: f2aed53e761ac484c89f9497190827d8, type: 2}
   mat: {fileID: 2100000, guid: 5a53e9243c605a54aa1d690bb075e481, type: 2}
   text_beside_button: {fileID: 1654631946}
 --- !u!1001 &559258687

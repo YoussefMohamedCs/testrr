@@ -16,7 +16,8 @@ public class panel_control : MonoBehaviour
     public Button Oplus;
     public Button Ominus;
     public Material wrong_answer;
-
+    private Button selectedButton;
+    public Material selectType;
     public Material mat;
     public GameObject text_beside_button;
 
@@ -45,18 +46,14 @@ public class panel_control : MonoBehaviour
 
         // Set material to the selected button
 
-
+        selectedButton = b;
 
         exp_selected_number = num;
 
-        if (exp_num == exp_selected_number)
-        {
-            b.image.material = mat;
-        }
-        else
-        {
-            b.image.material = wrong_answer;
-        }
+        
+            b.image.material = selectType;
+       
+      
     }
 
     public void AplusPress() => Select(Aplus, 1);
@@ -78,6 +75,19 @@ public class panel_control : MonoBehaviour
         else
         {
             myText.text = "false!";
+            text_beside_button.SetActive(true);
+
         }
+
+
+        if (exp_num == exp_selected_number)
+        {
+            selectedButton.image.material = mat;
+        }
+        else
+        {
+            selectedButton.image.material = wrong_answer;
+        }
+
     }
 }

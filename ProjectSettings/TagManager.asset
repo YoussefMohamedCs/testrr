@@ -16,6 +16,9 @@ TagManager:
   - WhiteWell
   - YellowWell
   - BlueWell
+  - Beaker
+  - Liquid
+  - Pin
   layers:
   - Default
   - TransparentFX

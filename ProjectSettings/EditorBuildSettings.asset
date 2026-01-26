@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/second_exp.unity
     guid: 5bbf513084206014da252e8e8a220a2b
+  - enabled: 1
+    path: Assets/Scenes/fourth_exp_1.unity
+    guid: d703ad31b7ceabb49a81c382922789a2
+  - enabled: 1
+    path: Assets/Scenes/fourth_exp.unity
+    guid: 274f723553312ae4e91bc6465ebd12e4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
