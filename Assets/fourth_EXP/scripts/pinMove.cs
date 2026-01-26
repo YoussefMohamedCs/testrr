@@ -52,7 +52,7 @@ public class pinMove : MonoBehaviour
         Vector3 direction = target - transform.position;
 
         //rb.linearVelocity = direction * followStrength * Time.deltaTime;
-        rb.linearVelocity = direction * Time.deltaTime * 2000f;
+        rb.linearVelocity = direction * Time.deltaTime * 4000f;
         //rb.linearVelocity = Vector3.ClampMagnitude(direction * 60f, 100f);
         //rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, direction * 60f, 0.5f);
         //rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, direction * 700f, 0.12f);

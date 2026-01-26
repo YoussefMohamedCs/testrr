@@ -19,6 +19,13 @@ TagManager:
   - Beaker
   - Liquid
   - Pin
+  - antibioticCapsola
+  - Paper1
+  - targetPlace
+  - targetPlace2
+  - Paper2
+  - Paper3
+  - Paper4
   layers:
   - Default
   - TransparentFX
