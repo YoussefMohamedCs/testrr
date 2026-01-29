@@ -26,6 +26,12 @@ TagManager:
   - Paper2
   - Paper3
   - Paper4
+  - plan1
+  - plan2
+  - Plan1
+  - Forn
+  - Finish2
+  - Base
   layers:
   - Default
   - TransparentFX

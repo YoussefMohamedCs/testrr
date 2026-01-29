@@ -7,8 +7,8 @@ using static UnityEngine.GraphicsBuffer;
 public class GameManger_fourth : MonoBehaviour
 {
     public Camera mainCamera;
-
-
+    bool handStatus = false;
+    public GameObject hand;
     void Start()
     {
         //StartCoroutine(firstMoveOFCam(5f));
@@ -90,6 +90,12 @@ public class GameManger_fourth : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             StartCoroutine(thirdMove(5f));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            handStatus = !handStatus;
+            hand.SetActive(handStatus);
         }
     }
 

@@ -6,7 +6,7 @@ public class cylinder : MonoBehaviour
     public float openAngle = 90f;   // ÒÇæíÉ ÇáİÊÍ
     public float speed = 2f;         // ÓÑÚÉ ÇáİÊÍ
 
-    private bool isOpen = false;
+    public static bool isOpen = false;
     private Quaternion closedRotation;
     private Quaternion openRotation;
 

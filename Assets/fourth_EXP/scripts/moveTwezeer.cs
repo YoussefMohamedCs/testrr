@@ -92,6 +92,18 @@ public class move : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        if(collision.gameObject == cap1 || collision.gameObject == cap2 || collision.gameObject == cap3 || collision.gameObject == cap4 || collision.gameObject == cap5 || collision.gameObject == cap6 || collision.gameObject == cap7 || collision.gameObject == cap8)
+        {
+            collision.gameObject.GetComponent<Collider>().enabled = false;
+        }
+        else
+        {
+            collision.gameObject.GetComponent<Collider>().enabled = true;
+
+        }
+
+
         if (collision.gameObject.CompareTag("Paper1"))
         {
             capsolaOneIsPicked = true;
@@ -110,7 +122,7 @@ public class move : MonoBehaviour
                 capIsPickUp = true;
                 StartCoroutine(moveCap(cap2));
             }
-           
+
         }
 
 
