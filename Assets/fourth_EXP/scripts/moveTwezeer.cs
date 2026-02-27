@@ -24,7 +24,7 @@ public class move : MonoBehaviour
     bool capsolaTwoIsPicked = false;
     bool capsolaThreeIsPicked = false;
     bool capsolaFourIsPicked = false;
-
+    private GameObject pickedItem;
 
 
     void Start()
@@ -33,7 +33,7 @@ public class move : MonoBehaviour
         cam = Camera.main;
 
         rb.isKinematic = false;
-        rb.useGravity = true;
+        rb.useGravity = false;
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
     }
 
@@ -95,6 +95,7 @@ public class move : MonoBehaviour
 
         if(collision.gameObject == cap1 || collision.gameObject == cap2 || collision.gameObject == cap3 || collision.gameObject == cap4 || collision.gameObject == cap5 || collision.gameObject == cap6 || collision.gameObject == cap7 || collision.gameObject == cap8)
         {
+            pickedItem = collision.gameObject;
             collision.gameObject.GetComponent<Collider>().enabled = false;
         }
         else
@@ -110,7 +111,6 @@ public class move : MonoBehaviour
             capsolaTwoIsPicked = false;
             capsolaFourIsPicked = false;
             capsolaThreeIsPicked = false;
-
 
             if (cap1counter == 0)
             {
@@ -183,6 +183,8 @@ public class move : MonoBehaviour
 
         if (collision.gameObject.CompareTag("targetPlace") && (cap1counter == 0 || cap2counter == 2 || cap3counter ==  4 || cap4counter == 6))
         {
+            pickedItem.GetComponent<Collider>().enabled = true;
+
             if (cap1counter == 0 && capsolaOneIsPicked)
             {
                 cap1.transform.position = new Vector3(-86.2983f, 2.6709f, -145.4648f);
@@ -213,6 +215,8 @@ public class move : MonoBehaviour
 
         if (collision.gameObject.CompareTag("targetPlace2") && (cap1counter == 1 || cap2counter == 3 || cap3counter ==5 || cap4counter == 7))
         {
+            pickedItem.GetComponent<Collider>().enabled = true;
+
             if (cap1counter == 1 && capsolaOneIsPicked)
             {
                 cap2.transform.position = new Vector3(-86.5986f, 2.6628f, -145.4899f);

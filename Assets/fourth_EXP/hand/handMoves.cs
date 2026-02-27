@@ -199,7 +199,14 @@ public class handMoves : MonoBehaviour
         {
             col.enabled = false;
         }
+        // new
 
+        if(cup == plan1) plan1child2.GetComponent<Collider>().enabled = true;
+        if(cup == plan2) plan2child2.GetComponent<Collider>().enabled = true;
+
+
+
+        // end new
         // Reset rotations
         cup.transform.rotation = Quaternion.identity;
         child1.transform.rotation = Quaternion.identity;

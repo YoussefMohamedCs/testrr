@@ -29,15 +29,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BottomStripeAlpha: 1
+    - _BottomStripeAlpha: 0
     - _ColorMask: 25.87
-    - _FillBottom: 1
+    - _FillBottom: 0
     - _FillLeft: 1
-    - _FillMiddle: 1
+    - _FillMiddle: 0
     - _FillRight: 1
-    - _FillTop: 1
+    - _FillTop: 0
     - _LeftStripeAlpha: 1
-    - _MiddleStripeAlpha: 1
+    - _MiddleStripeAlpha: 0
     - _RightStripeAlpha: 0.953
     - _Stencil: 1
     - _StencilComp: 23.9
@@ -46,12 +46,12 @@ Material:
     - _StencilWriteMask: 255
     - _StripeCount: 59
     - _StripeWidth: 0.745
-    - _TopStripeAlpha: 1
+    - _TopStripeAlpha: 0
     m_Colors:
-    - _BottomColor: {r: 1, g: 0.85882354, b: 0.3529412, a: 1}
+    - _BottomColor: {r: 1, g: 0.96, b: 0.71, a: 1}
     - _LeftColor: {r: 1, g: 0, b: 0, a: 1}
-    - _MiddleColor: {r: 1, g: 0.85882354, b: 0.3529412, a: 1}
+    - _MiddleColor: {r: 1, g: 0.96, b: 0.71, a: 1}
     - _RightColor: {r: 1, g: 0, b: 0.14876032, a: 0}
-    - _TopColor: {r: 1, g: 0.85882354, b: 0.3529412, a: 1}
+    - _TopColor: {r: 1, g: 0.96, b: 0.71, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
