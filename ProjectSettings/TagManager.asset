@@ -32,6 +32,11 @@ TagManager:
   - Forn
   - Finish2
   - Base
+  - water
+  - paper1
+  - paper2
+  - paper3
+  - paper4
   layers:
   - Default
   - TransparentFX

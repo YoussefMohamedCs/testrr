@@ -61,12 +61,5 @@ public class pinMove : MonoBehaviour
 
     }
 
-    void OnMouseUp()
-    {
-        if (!isDragging) return;
-
-        isDragging = false;
-
-        rb.useGravity = true;
-    }
+   
 }
